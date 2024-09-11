@@ -1,5 +1,7 @@
 <!-- TicketPayment.vue -->
 
+
+
 <template>
   <div class="container mt-4 TicketPayment">
     <h1 class="mb-4">Ticket and Payment Management</h1>
@@ -18,6 +20,7 @@
               <p class="card-text"><strong>Price:</strong> ${{ ticket.price.toFixed(2) }}</p>
               <p class="card-text"><strong>Seat:</strong> {{ ticket.seatNumber }}</p>
               <p class="card-text"><strong>Booking ID:</strong> {{ ticket.bookingID }}</p>
+              <!-- <p class="card-text"><strong>Additional Info:</strong> {{ ticket.additionalInfo }}</p> -->
             </div>
             <div class="card-footer">
               <small class="text-muted">Date: {{ ticket.date }}</small>
@@ -32,10 +35,7 @@
       <div class="col-md-6">
         <h2><font-awesome-icon icon="ticket" /> Add Ticket</h2>
         <form @submit.prevent="submitTicket">
-          <div class="mb-3">
-            <label for="ticketID" class="form-label">Ticket ID:</label>
-            <input v-model="ticketForm.ticketID" type="number" class="form-control" id="ticketID" required>
-          </div>
+
           <div class="mb-3">
             <label for="bookingID" class="form-label">Booking ID:</label>
             <input v-model="ticketForm.bookingID" type="number" class="form-control" id="bookingID" required>
@@ -63,13 +63,9 @@
       </div>
 
       <!-- Payment Form -->
-      <div class="col-md-6">
+      <div class="col-md-6 pt-3">
         <h2><font-awesome-icon icon="credit-card" /> Process Payment</h2>
         <form @submit.prevent="submitPayment">
-          <div class="mb-3">
-            <label for="paymentBookingID" class="form-label">Booking ID:</label>
-            <input v-model="paymentForm.bookingID" type="number" class="form-control" id="paymentBookingID" required>
-          </div>
           <div class="mb-3">
             <label for="amount" class="form-label">Amount:</label>
             <input v-model="paymentForm.amount" type="number" step="0.01" class="form-control" id="amount" required>

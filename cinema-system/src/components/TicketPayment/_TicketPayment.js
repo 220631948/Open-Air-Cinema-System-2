@@ -37,33 +37,38 @@ export default {
     computed: {},
 
     methods: {
+        // for testing purpose
         payNow() {
             this.paymentStatus = 'Payment successful';
         },
 
-
         submitTicket() {
-            this.tickets.push({...this.ticketForm});
-
+            // Simulate API call to save ticket
+            const newTicket = {...this.ticketForm, ticketID: Date.now(), bookingID: Date.now()};
+            this.tickets.push(newTicket);
+            this.resetTicketForm();
+        },
+        submitPayment() {
+            // Simulate API call to process payment
+            const paymentID = Date.now();
+            console.log('Payment processed:', {...this.paymentForm, paymentID});
+            this.resetPaymentForm();
+        },
+        resetTicketForm() {
             this.ticketForm = {
-                ticketID: null,
-                bookingID: null,
                 seatNumber: '',
                 type: '',
                 price: null,
-                date: ''
+                date: '',
+                additionalInfo: ''
             };
         },
-        submitPayment() {
-            const paymentID = Date.now();
-
-            // Handle payment logic here
+        resetPaymentForm() {
             this.paymentForm = {
-                bookingID: null,
                 amount: null,
                 paymentMethod: '',
                 date: ''
-            }
+            };
         }
     }
-}
+};
