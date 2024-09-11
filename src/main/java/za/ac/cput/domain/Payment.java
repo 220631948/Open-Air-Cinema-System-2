@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 import java.util.Objects;
+@Table(name = "Payments")
 
 @Entity
 public class Payment {
@@ -22,7 +23,7 @@ public class Payment {
     private Date date;
 
     @ManyToOne
-    @JoinColumn(name = "bookingID")
+    @JoinColumn(name = "bookingID", nullable = false)
     private Booking booking;
 
     // protected no args constructor
