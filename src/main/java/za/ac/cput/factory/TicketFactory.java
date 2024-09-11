@@ -9,7 +9,7 @@ import za.ac.cput.utils.HelperUtils;
 
 
 public class TicketFactory {
-    public static Ticket createTicket(Long ticketID, Long ticketType, double ticketPrice, Long seatNumber, Booking booking) {
+    public static Ticket createTicket(String ticketID, String ticketType, double ticketPrice, String seatNumber, Booking booking) {
         // Validate the input using the HelperUtils class
         // Return a new Ticket object
         if (HelperUtils.isNullOrEmpty(ticketID)
@@ -32,7 +32,7 @@ public class TicketFactory {
                 .build();
     }
 
-    public static Ticket createTicket(Long ticketID, Long ticketType, double ticketPrice, Long seatNumber) {
+    public static Ticket createTicket(String ticketID, String ticketType, double ticketPrice, String seatNumber) {
         // Validate the input using the HelperUtils class
         if (HelperUtils.isNullOrEmpty(ticketID)
                 || HelperUtils.isNullOrEmpty(ticketType)
