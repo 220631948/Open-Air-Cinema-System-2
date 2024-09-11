@@ -12,16 +12,16 @@ import java.util.Objects;
 public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String ticketID;
+    private Long ticketID;
 
     @Column(name = "ticketType", nullable = false)
-    private String ticketType;
+    private Long ticketType;
 
     @Column(name = "ticketPrice", nullable = false)
     private double ticketPrice;
 
     @Column(name = "seatNumber", nullable = false, unique = true)
-    private String seatNumber;
+    private Long seatNumber;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bookingID", nullable = false)
@@ -37,11 +37,11 @@ public class Ticket {
         this.booking = builder.booking;
     }
 
-    public String getTicketID() {
+    public Long getTicketID() {
         return ticketID;
     }
 
-    public String getTicketType() {
+    public Long getTicketType() {
         return ticketType;
     }
 
@@ -49,7 +49,7 @@ public class Ticket {
         return ticketPrice;
     }
 
-    public String getSeatNumber() {
+    public Long getSeatNumber() {
         return seatNumber;
     }
 
@@ -82,18 +82,18 @@ public class Ticket {
     }
 
     public static class Builder {
-        private String ticketID;
-        private String ticketType;
+        private Long ticketID;
+        private Long ticketType;
         private double ticketPrice;
-        private String seatNumber;
+        private Long seatNumber;
         private Booking booking;
 
-        public Builder setTicketID(String ticketID) {
+        public Builder setTicketID(Long ticketID) {
             this.ticketID = ticketID;
             return this;
         }
 
-        public Builder setTicketType(String ticketType) {
+        public Builder setTicketType(Long ticketType) {
             this.ticketType = ticketType;
             return this;
         }
@@ -103,7 +103,7 @@ public class Ticket {
             return this;
         }
 
-        public Builder setSeatNumber(String seatNumber) {
+        public Builder setSeatNumber(Long seatNumber) {
             this.seatNumber = seatNumber;
             return this;
         }
