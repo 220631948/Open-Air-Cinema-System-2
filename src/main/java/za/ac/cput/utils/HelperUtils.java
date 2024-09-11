@@ -23,6 +23,10 @@ public class HelperUtils {
         return value == null;
     }
 
+    public static boolean isNullOrEmpty(String ticketID) {
+        return ticketID == null || ticketID.trim().isEmpty();
+    }
+
     // is valid payment amount
     public boolean isValidPaymentAmount(double paymentAmount) {
         return paymentAmount > 0;
