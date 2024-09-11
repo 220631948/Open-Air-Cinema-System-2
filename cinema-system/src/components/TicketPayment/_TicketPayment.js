@@ -3,7 +3,6 @@
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {faTicket, faCreditCard, faSave, faList} from '@fortawesome/free-solid-svg-icons'
-//import {mapState, mapActions} from 'vuex'
 
 library.add(faTicket, faCreditCard, faSave, faList)
 
@@ -23,7 +22,8 @@ export default {
                 seatNumber: '',
                 type: '',
                 price: null,
-                date: ''
+                date: '',
+                includes: []
             },
             paymentForm: {
                 bookingID: null,
@@ -34,17 +34,15 @@ export default {
         }
     },
 
-    computed: {},
-
     methods: {
-        // for testing purpose
-        payNow() {
-            this.paymentStatus = 'Payment successful';
+        bookNow(ticket) {
+            alert(`Booking ticket #${ticket.ticketID} for $${ticket.price.toFixed(2)}`);
         },
 
         submitTicket() {
             // Simulate API call to save ticket
             const newTicket = {...this.ticketForm, ticketID: Date.now(), bookingID: Date.now()};
+            newTicket.includes = newTicket.includes.split(',').map(item => item.trim());
             this.tickets.push(newTicket);
             this.resetTicketForm();
         },
@@ -60,7 +58,7 @@ export default {
                 type: '',
                 price: null,
                 date: '',
-                additionalInfo: ''
+                includes: ''
             };
         },
         resetPaymentForm() {
