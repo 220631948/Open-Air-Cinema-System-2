@@ -1,6 +1,7 @@
 package za.ac.cput.utils;
 
 import java.util.Date;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class HelperUtils {
     public static boolean isNullorEmpty(String value) {
@@ -11,9 +12,12 @@ public class HelperUtils {
         return value == null;
     }
 
-    public static boolean isNullorEmpty(int value) {
-        return value == 0;
+    public static String randomSeatNumber() {
+        char row = (char) ('A' + ThreadLocalRandom.current().nextInt(0, 10));
+        int number = ThreadLocalRandom.current().nextInt(1, 20);
+        return String.valueOf(row) + number;
     }
+
 
     public static boolean isNullorEmpty(double value) {
         return value == 0.0;
@@ -23,21 +27,11 @@ public class HelperUtils {
         return value == null;
     }
 
-    public static boolean isNullOrEmpty(String ticketID) {
-        return ticketID == null || ticketID.trim().isEmpty();
-    }
 
     // is valid payment amount
     public boolean isValidPaymentAmount(double paymentAmount) {
         return paymentAmount > 0;
     }
-
-
-
-
-
-
-
 
 
 }
