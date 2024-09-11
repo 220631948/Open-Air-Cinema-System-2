@@ -27,6 +27,10 @@ public class HelperUtils {
         return value == null;
     }
 
+    public static boolean isNullOrEmpty(String value) {
+        return value == null || value.trim().isEmpty();
+    }
+
 
     // is valid payment amount
     public boolean isValidPaymentAmount(double paymentAmount) {
