@@ -1,7 +1,5 @@
 <!-- TicketPayment.vue -->
 
-
-
 <template>
   <div class="container mt-4 TicketPayment">
     <h1 class="mb-4">Ticket and Payment Management</h1>
@@ -19,8 +17,10 @@
               <p class="card-text"><strong>Type:</strong> {{ ticket.type }}</p>
               <p class="card-text"><strong>Price:</strong> ${{ ticket.price.toFixed(2) }}</p>
               <p class="card-text"><strong>Seat:</strong> {{ ticket.seatNumber }}</p>
+//AI start Copilot
               <p class="card-text"><strong>Booking ID:</strong> {{ ticket.bookingID }}</p>
               <!-- <p class="card-text"><strong>Additional Info:</strong> {{ ticket.additionalInfo }}</p> -->
+//AI end Copilot
             </div>
             <div class="card-footer">
               <small class="text-muted">Date: {{ ticket.date }}</small>

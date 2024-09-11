@@ -1,3 +1,6 @@
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/css/bootstrap.min.css');
+
+
 .TicketPayment {
   display: flex;
   flex-direction: column;
